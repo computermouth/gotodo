@@ -1,0 +1,3 @@
+
+generate:
+	@./gen-global.sh
