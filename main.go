@@ -11,11 +11,19 @@ type Todo struct {
 	Done  bool
 }
 
+type Asset struct {
+	Jquery template.JS
+	Bootst template.JS
+	Custom template.JS
+	Css    template.CSS
+}
+
 type TodoPageData struct {
 	Empty     bool
 	Artifact  string
 	Region    string
 	PageTitle string
+	Assets    Asset
 	Todos     []Todo
 }
 
@@ -25,6 +33,12 @@ var (
 		Artifact:  "samplelambda",
 		Region:    "use1",
 		PageTitle: "My TODO list",
+		Assets: Asset{
+			Jquery: template.JS(Jquery),
+			Bootst: template.JS(Bootst),
+			Custom: template.JS(Custom),
+			Css:    template.CSS(Css),
+		},
 		Todos: []Todo{
 			{Title: "Task 1", Done: false},
 			{Title: "Task 2", Done: true},
@@ -36,7 +50,7 @@ var (
 )
 
 func imports(w http.ResponseWriter, r *http.Request) {
-	
+
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -47,7 +61,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		data.Todos[2].Done = true
 	}
 
-	tmpl.Execute(w, data)
+	err := tmpl.Execute(w, data)
+	if err != nil {
+		fmt.Println(err)
+	}
+
 }
 
 func main() {

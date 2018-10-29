@@ -1,6 +1,6 @@
 <html>
 	<head><link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo="></head>
-	<!-- css --><style type="text/css"></style>
+	<!-- css --><style type="text/css">{{.Assets.Css}}</style>
 	<body>
 	<div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 		<div class="container">
@@ -29,9 +29,8 @@
 	{{end}}
 	</div>
 	
-	<!-- jquery --><script></script>
-	<!-- popper --><script></script>
-	<!-- bootst --><script></script>
-	<!-- custom --><script></script>
+	<!-- jquery --><script>{{.Assets.Jquery}}</script>
+	<!-- bootst --><script>{{.Assets.Bootst}}</script>
+	<!-- custom --><script>{{.Assets.Custom}}</script>
 	</body>
 </html>

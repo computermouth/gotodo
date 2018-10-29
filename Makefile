@@ -1,3 +1,9 @@
+all: generate test
+	go build
+
+test:
+	go test
 
 generate:
-	@./gen-global.sh
+	rm global.go
+	./gen-global.sh

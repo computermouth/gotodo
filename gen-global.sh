@@ -8,10 +8,6 @@ echo -e "\tJquery = \`"                    >> global.go
 cat jquery.js                              >> global.go
 echo -e "\`"                               >> global.go
 
-echo -e "\tPopper = \`"                    >> global.go
-cat popper.js                              >> global.go
-echo -e "\`"                               >> global.go
-
 echo -e "\tBootst = \`"                    >> global.go
 cat bootst.js                              >> global.go
 echo -e "\`"                               >> global.go
